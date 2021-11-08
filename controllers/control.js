@@ -182,3 +182,27 @@ function show_pass_compr() {
         $('#btn_show_compr').text('Ver');
     }
 }
+
+var estado_tarjeta = true;
+//muestra la tarjeta en el modulo reservaciones
+function show_tarjeta() {
+    if (estado_tarjeta) {
+        $('#input_tarjeta').attr("type", "text");
+        estado_tarjeta = false;
+    } else {
+        $('#input_tarjeta').attr("type", "password");
+        estado_tarjeta = true;
+    }
+}
+
+var estado_codigo = true;
+
+function show_codigo() {
+    if (estado_codigo) {
+        $('#input_codigo').attr("type", "text");
+        estado_codigo = false;
+    } else {
+        $('#input_codigo').attr("type", "password");
+        estado_codigo = true;
+    }
+}

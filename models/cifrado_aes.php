@@ -1,9 +1,9 @@
 <?php
-// $id_usuario = 13;
-// $str = "Hola mundo";
+
 
 // Se lee la llave privada que se encuentra en el servidor
 $llave = file_get_contents('llaves/'.$id_usuario.'.txt');
+
 
 if($llave){
 

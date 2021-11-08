@@ -3,6 +3,7 @@
 // error_reporting(0);
 
 $var_cliente = $_SESSION['usuario'];
+$id_usuario = $_SESSION['id_usuario'];
 
 if($var_cliente != null || $var_cliente != ''){
 
@@ -17,7 +18,7 @@ if($var_cliente != null || $var_cliente != ''){
     }else{
     
 
-        $consulta = "SELECT fecha_estancia, tipo, personas  FROM reservaciones INNER JOIN habitaciones ON reservaciones.id_habitacion = habitaciones.id_habitacion WHERE cliente = '$var_cliente'";
+        $consulta = "SELECT fecha_estancia, tipo, personas  FROM reservaciones INNER JOIN habitaciones ON reservaciones.id_habitacion = habitaciones.id_habitacion WHERE id_usuario = $id_usuario";
 
         $consulta_ejec= mysqli_query($enlace, $consulta);
 
@@ -57,38 +58,40 @@ if($var_cliente != null || $var_cliente != ''){
             $dato_habit = "<h6 class=\"text-center\">Ningúna habitación reservada</h6>";
         }
 
-        $consulta_2 = "SELECT email, tel, num_tarjeta  FROM reservaciones INNER JOIN tarjetas ON reservaciones.id_cliente = tarjetas.id_cliente WHERE cliente = '$var_cliente' LIMIT 1;";
+        $consulta_2 = "SELECT usuario, dir, tel, email, pass, num_tarjeta, fecha, codigo, postal FROM usuarios INNER JOIN tarjetas ON usuarios.id_usuario = tarjetas.id_usuario WHERE usuario = '$var_cliente'";
         $consulta_ejec_2= mysqli_query($enlace, $consulta_2);
         $num_rows_2 = mysqli_num_rows($consulta_ejec_2);
 
         
-        $dato_person = "";
+       
 
-        
+        $usuario = "";
+        $dir = "";
+        $tel = "";
+        $email = "";
+        $pass = "";
+        $num_tarjeta = "";
+        $fecha = "";
+        $codigo = "";
+        $postal = 0;
 
         foreach($consulta_ejec_2 as $key){
-            $dato_person = "
+
             
-            <table class=\"table\">
-            <tbody>
-                <tr>
-                    <td>Nombre del cliente</td>
-                    <td>".$var_cliente."</td>
-                </tr>
-                <tr>
-                    <td>Correo</td>
-                    <td>".$key['email']."</td>
-                </tr>
-                <tr>
-                    <td>Teléfono</td>
-                    <td>".$key['tel']."</td>
-                </tr>
-                <tr>
-                    <td>Tarjeta bancaria</td>
-                    <td>".$key['num_tarjeta']."</td>
-                </tr>
-            </tbody>
-            </table>";
+            $usuario = $key['usuario'];
+            $dir = $key['dir'];
+            $tel = $key['tel'];
+            $email = $key['email'];
+            $pass = $key['pass'];
+            $num_tarjeta = $key['num_tarjeta'];
+            $fecha = $key['fecha'];
+            $codigo = $key['codigo'];
+            $postal = $key['postal'];
+            
+        }
+
+        // Si se encuentró datos bancarios, hay que descifrar
+        if($num_tarjeta != "" || $fecha != "" || $codigo != "" || $postal != 0){
             
         }
 

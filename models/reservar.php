@@ -2,7 +2,7 @@
 
 
 session_start();
-// error_reporting(0);
+error_reporting(0);
 
 $var_cliente = $_SESSION['usuario'];
 $id_usuario = $_SESSION['id_usuario'];
@@ -54,7 +54,6 @@ if(!$enlace){
     
     if($datos){
 
-       
 
         $consultar_habit = "SELECT id_habitacion FROM habitaciones WHERE tipo = '$numero'";
         $datos_consult = mysqli_query($enlace, $consultar_habit);
@@ -64,7 +63,7 @@ if(!$enlace){
         }
         if($numero != null){
 
-
+  
 
             $insert = "INSERT INTO reservaciones (id_usuario, fecha_estancia, id_habitacion, personas) VALUES ($id_usuario,'$fecha', $numero , $personas)";
             

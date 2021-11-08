@@ -25,24 +25,13 @@ if(!$enlace){
             $id_habitacion = $key['id_habitacion'];
         }
 
-       $elim_tarjet = "DELETE FROM tarjetas WHERE id_cliente = (SELECT id_cliente FROM clientes WHERE id_habitacion = $id_habitacion)";
-       $datos_elim = mysqli_query($enlace, $elim_tarjet);
+       $elim_reserv = "DELETE FROM reservaciones WHERE id_habitacion = $id_habitacion";
+       $datos_elim = mysqli_query($enlace, $elim_reserv);
         
        
        if($datos_elim){
 
-            $elim_rsa = "DELETE FROM claves_rsa WHERE id_cliente = (SELECT id_cliente FROM clientes WHERE cliente = '$cliente' AND id_habitacion = $id_habitacion)";
-            $datos_rsa_elim = mysqli_query($enlace, $elim_rsa);
-            if($datos_rsa_elim){
-                $elim_cliente = "DELETE FROM clientes WHERE id_habitacion = $id_habitacion";
-                $datos_elim_cliente = mysqli_query($enlace, $elim_cliente);
-    
-                if($datos_elim_cliente){
-                    echo "Todo eliminado";
-                }
-            }
-
-           
+           echo "Todo eliminado";
        }
         
     }
