@@ -21,4 +21,3 @@ header ("Content-Type: application/octet-stream");
 header ("Content-Length: ".filesize($archivo)); 
 readfile($archivo);
 
-?>

@@ -40,7 +40,3 @@ if($var_admin == null || $var_admin == ''){
 
     }
 
-
-
-
-?>

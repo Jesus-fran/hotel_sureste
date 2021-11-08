@@ -4,10 +4,15 @@ session_start();
 error_reporting(0);
 
 $var_cliente = $_SESSION['usuario'];
+$id_usuario = $_SESSION['id_usuario'];
 $var_dir     = $_SESSION['dir'];
 $var_tel     = $_SESSION['tel'];
 $var_admin = $_SESSION['gerente'];
 
+
+if($var_cliente == null || $var_cliente == ''){
+    header("Location:login.php");
+}
 
 ?>
 
@@ -73,7 +78,7 @@ $var_admin = $_SESSION['gerente'];
                 <div class="col-md-2">
                     <div class="form-group">
                         <label>Fecha de instancia</label>
-                        <input type="date" name="fecha" class="form-control" min="2021-09-29" max="2021-10-29" required>
+                        <input type="date" name="fecha" class="form-control" min="2021-11-01" max="2021-12-31" required>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -112,74 +117,6 @@ $var_admin = $_SESSION['gerente'];
 
             </div>
             <br><br>
-            <!-- Datos personales -->
-            <h4 class="text-center">Datos personales</h4>
-            <br><br>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Nombre del cliente</label>
-                        <?php
-                         if($var_cliente != null | $var_cliente != ''){
-                            echo "<input type=\"text\" name=\"cliente\" class=\"form-control\" placeholder=\"Nombre completo\" value=\"$var_cliente\" required>";
-
-                         }else{
-                            echo "<input type=\"text\" name=\"cliente\" class=\"form-control\" placeholder=\"Nombre completo\" required>";
-                         }
-                        
-                        ?>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Dirección</label>
-                        <?php
-                        
-                        if($var_dir != null | $var_dir != ''){
-                            echo "<input type=\"text\" name=\"dir\" class=\"form-control\" placeholder=\"Ciudad, colonia y calle\" value=\"$var_dir\" required>";
-                            
-                         }else{
-                            echo "<input type=\"text\" name=\"dir\" class=\"form-control\" placeholder=\"Ciudad, colonia y calle\" required>";
-                         }
-                        
-
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Telefono</label>
-                        <?php
-                         if($var_tel != null | $var_tel != ''){
-                            echo "<input type=\"text\" name=\"tel\" class=\"form-control\" placeholder=\"10 digitos\" value=\"$var_tel\" required>";
-
-                         }else{
-                            echo "<input type=\"text\" name=\"tel\" class=\"form-control\" placeholder=\"10 digitos\" required>";
-
-                         }
-                        ?>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Correo electronico</label>   
-                        <input type="email" name="email" class="form-control" placeholder="ejemplo@gmail.com" required>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <label>Contraseña de acceso</label>
-                    <div class="input-group"> 
-                        <input type="password" name="pass" class="form-control" id="input_pass">
-                        <button class="btn btn-outline-secondary" type="button" id="btn_show" onclick=" show_pass()" >Ver</button>
-                    </div>
-
-                </div>
-            </div>
-
-            <br><br>
             <!-- Método de págo -->
             <h4 class="text-center">Método de págo</h4>
             <h6 class="text-center">Tarjeta de crédito o débito</h6>
@@ -189,7 +126,32 @@ $var_admin = $_SESSION['gerente'];
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Número de tarjeta</label>
-                        <input type="text" name="tarjeta" class="form-control" placeholder="16 digitos" id="input_tarjeta" required>
+                        <?php
+
+                            // Se lee la llave privada que se encuentra en el servidor
+                            $llave = file_get_contents('../models/llaves/'.$id_usuario.'.txt');
+                            if($llave){
+                               
+                                include("../models/obtener_tarjeta.php");
+                                
+                                
+                                // Desencripta la información
+                                function decrypted($data, $llave){
+                                    $decrypted = openssl_decrypt(base64_decode($data), 'AES-128-ECB', $llave, OPENSSL_RAW_DATA);
+                                    return $decrypted;
+                                }
+
+                                $tarjeta = decrypted($datos['num_tarjeta'], $llave);
+    
+                                echo "<input type=\"text\" value=\"".$tarjeta."\" name=\"tarjeta\" class=\"form-control\" placeholder=\"16 digitos\" id=\"input_tarjeta\" maxlength=\"16\" required>";
+                            }else{
+                                echo "<input type=\"text\"  name=\"tarjeta\" class=\"form-control\" placeholder=\"16 digitos\" id=\"input_tarjeta\" maxlength=\"16\" required>";
+                            }
+                            
+
+                            
+                        ?>
+
                     </div>
                 </div>
 

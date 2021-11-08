@@ -14,6 +14,3 @@ function encrip_pass($contraseña){
     return $pass_encript;
 }
 
-
-
-?>

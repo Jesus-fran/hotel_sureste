@@ -30,5 +30,3 @@ $mensaje_encriptado = base64_decode($mensaje_encriptado);
 
 
 
-
-?>

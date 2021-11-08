@@ -104,5 +104,3 @@ if($var_cliente != null || $var_cliente != ''){
 
 
 
-
-?>
