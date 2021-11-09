@@ -31,12 +31,33 @@ $fecha_vence = $_POST['fecha_vence'];
 $codigo      = $_POST['codigo'];
 $postal      = $_POST['postal'];
 
-echo $fecha;
-echo $habitacion;
-echo $numero;
-echo $personas;
-echo $cliente;
-echo $tarjeta;
-echo $fecha_vence;
-echo $codigo;
-echo $postal;
+// echo $fecha;
+// echo $habitacion;
+// echo $numero;
+// echo $personas;
+// echo $cliente;
+// echo $tarjeta;
+// echo $fecha_vence;
+// echo $codigo;
+// echo $postal;
+
+
+include("cifrado_aes.php");
+
+$tarjeta_encript = encriptar($tarjeta, $llave);
+$codigo_encript = encriptar($codigo, $llave);
+
+
+
+$enlace = mysqli_connect("localhost", "admin", "Coronavirus19$", "hotel_sureste");
+
+if(!$enlace){
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}else{
+
+    echo "Se mete al else";
+    
+}
