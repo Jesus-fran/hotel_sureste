@@ -10,7 +10,7 @@ $var_admin = $_SESSION['gerente'];
 
 
 if($var_cliente == null || $var_cliente == ''){
-    header("Location:login.php");
+    header("Location:../views/login.php");
 }
 
 

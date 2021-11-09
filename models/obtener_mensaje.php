@@ -8,7 +8,7 @@ error_reporting(0);
 $var_admin = $_SESSION['gerente'];
 
 if($var_admin == null || $var_admin == ''){
-    header("Location:login.php");
+    header("Location:../views/login.php");
 }
 
     $mensaje = "";

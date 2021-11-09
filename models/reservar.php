@@ -10,7 +10,7 @@ $id_usuario = $_SESSION['id_usuario'];
 
 
 if($var_cliente == null || $var_cliente == ''){
-    header("Location:login.php");
+    header("Location:../views/login.php");
 }
 
 
