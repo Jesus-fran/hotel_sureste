@@ -6,10 +6,10 @@ $tel        = $_POST['tel'];
 $email      = $_POST['email'];
 $pass       = $_POST['pass'];
 
-include("validar_form.php");
+// include("validar_form.php");
 
 
-if(validar_user($usuario) && validar_dir($direccion) && validar_tel($tel) && validar_email($email) && validar_pass($pass)){
+// if(validar_user($usuario) && validar_dir($direccion) && validar_tel($tel) && validar_email($email) && validar_pass($pass)){
     
     include("hash.php");
 
@@ -36,9 +36,9 @@ if(validar_user($usuario) && validar_dir($direccion) && validar_tel($tel) && val
 
     }
  
-}else{
-    header ("Location:../views/registrar.php?fallo=true");
-}
+// }else{
+//     header ("Location:../views/registrar.php?fallo=true");
+// }
 
 
 

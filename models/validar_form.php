@@ -4,8 +4,18 @@
 // y previenen ataques xss scripting
 
 function validar_user($user){
-    return preg_match('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$', $user);
+    return preg_match("/abc/", $user);
 }
+
+// if(validar_user("fran")){
+//     echo "Bien";
+// }else{
+//     echo "mal";
+// }
+
+$abecedario = "Francisco Gomez";
+echo preg_match("/^[a-z]+$/i", $abecedario);
+
 
 function validar_dir($dir){
     return preg_match('[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]');
