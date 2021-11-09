@@ -40,7 +40,7 @@ if($var_admin == null || $var_admin == ''){
                     <th scope=\"row\">".$contador."</th>
                     <td>".$key['usuario']."</td>
                     <td>".$key['tel']."</td>
-                    <td>".$key['Fecha_estancia']."</td>
+                    <td>".$key['fecha_estancia']."</td>
                     <td>".$key['tipo']."</td>
                     <td>".$key['personas']."</td>
                     </tr>";
