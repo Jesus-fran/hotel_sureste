@@ -44,7 +44,8 @@ if($var_admin == null || $var_admin == ''){
                 <?php 
                 
                 if($var_admin !== null || $var_admin != ''){
-                    echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='administracion.php'\" disabled>Mensajes</button>";
+                    echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='administracion.php'\">Mensajes</button>";
+                    echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='compras_clientes.php'\" disabled>compras de clientes</button>";
                     echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='../models/cerrar_sesion.php'\">Cerrar sesión</button>";
                 }
                 
@@ -74,6 +75,10 @@ if($var_admin == null || $var_admin == ''){
             </thead>
             <tbody>
                <!-- Aqui se agrega el contenido -->
+               <?php
+                include("../models/obtener_compras.php");
+                echo $compras;
+               ?>
                
             </tbody>
         </table>

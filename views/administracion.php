@@ -45,6 +45,7 @@ if($var_admin == null || $var_admin == ''){
                 
                 if($var_admin !== null || $var_admin != ''){
                     echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='administracion.php'\" disabled>Mensajes</button>";
+                    echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='compras_clientes.php'\">compras de clientes</button>";
                     echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='../models/cerrar_sesion.php'\">Cerrar sesión</button>";
                 }
                 

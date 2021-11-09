@@ -38,6 +38,8 @@ $var_admin = $_SESSION['gerente'];
 
                 if($var_admin !== null || $var_admin != ''){
                     echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='views/administracion.php'\">Mensajes</button>";
+                    echo "<button class=\"btn btn-outline-secondary\" type=\"button\" onclick=\"location.href='compras_clientes.php'\">compras de clientes</button>";
+                    
                 }
                 
                 if($varsesion !== null || $varsesion != ''){
