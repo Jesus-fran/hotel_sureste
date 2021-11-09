@@ -35,7 +35,7 @@ if($var_admin == null || $var_admin == ''){
         <div class="container-fluid">
 
             <form class="container-fluid justify-content-start">
-                <a class="navbar-brand" href="http://localhost/hotel_sureste/">
+                <a class="navbar-brand" href="http://143.244.172.240/hotel_sureste/">
                     <img src="../imagenes/logo.PNG" alt="" width="200" height="100">
                 </a>
                 <button class="btn btn-outline-secondary" type="button" onclick="location.href='reservaciones.php'">Reservaciones</button>

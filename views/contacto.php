@@ -30,7 +30,7 @@ $var_admin = $_SESSION['gerente'];
         <div class="container-fluid">
 
             <form class="container-fluid justify-content-start">
-                <a class="navbar-brand" href="http://localhost/hotel_sureste/">
+                <a class="navbar-brand" href="http://143.244.172.240/hotel_sureste/">
                     <img src="../imagenes/logo.PNG" alt="" width="200" height="100">
                 </a>
                 <button class="btn btn-outline-secondary" type="button" onclick="location.href='reservaciones.php'">Reservaciones</button>
@@ -56,7 +56,7 @@ $var_admin = $_SESSION['gerente'];
 
 
     <div class="container">
-        <form method="POST" action="http://localhost/hotel_sureste/models/enviar_duda.php">
+        <form method="POST" action="http://143.244.172.240/hotel_sureste/models/enviar_duda.php">
             <div class="row">
                 <h4 class="text-center">Realiza una pregunta</h4>
                 <?php

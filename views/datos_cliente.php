@@ -36,7 +36,7 @@ if($var_cliente == null || $var_cliente == ''){
         <div class="container-fluid">
 
             <form class="container-fluid justify-content-start">
-                <a class="navbar-brand" href="http://localhost/hotel_sureste/">
+                <a class="navbar-brand" href="http://143.244.172.240/hotel_sureste/">
                     <img src="../imagenes/logo.PNG" alt="" width="200" height="100">
                 </a>
                 <button class="btn btn-outline-secondary" type="button" onclick="location.href='reservaciones.php'">Reservaciones</button>
@@ -78,7 +78,7 @@ if($var_cliente == null || $var_cliente == ''){
             <div class="col-md-5 offset-md-2">
                 <div class="card">
                          <!-- http://localhost/hotel_sureste/models/registrar_user.php -->
-                    <form method="POST" action="http://localhost/hotel_sureste/models/editar_user.php" novalidate>
+                    <form method="POST" action="http://143.244.172.240/hotel_sureste/models/editar_user.php" novalidate>
                         <h5 class="card-header text-center">Información personal</h5>
                         <div class="card-body">
                             <div class="container">

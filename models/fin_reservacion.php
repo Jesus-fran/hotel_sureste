@@ -3,7 +3,7 @@
 $tipo = $_POST['tipo'];
 $cliente = $_POST['cliente'];
 
-$enlace = mysqli_connect("localhost", "root", "", "hotel_sureste");
+$enlace = mysqli_connect("localhost", "admin", "coronavirus9", "hotel_sureste");
 
 if(!$enlace){
     echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
