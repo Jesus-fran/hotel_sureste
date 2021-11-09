@@ -115,6 +115,9 @@ $var_admin = $_SESSION['gerente'];
                 </div>
             </div>
         </form>
+        <br>
+        <h6 class="text text-danger">Sus datos se mantendran de manera segurá de acuerdo a nuestro <a href="https://markethax.com/generador-aviso-de-privacidad/">aviso de privacidad</a></h6>
+
 
     </div>
 

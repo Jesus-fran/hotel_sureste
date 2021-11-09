@@ -87,33 +87,33 @@ if($var_admin != null | $var_admin != ''){
                                 <br>
                                 <div class="form-group">
                                     <label>Nombre de usuario</label>
-                                    <input type="text" name="usuario" class="form-control" required>
+                                    <input type="text" name="usuario" class="form-control" maxlength="30" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label>Dirección</label>
-                                    <input type="text" name="direccion" class="form-control" placeholder="Ciudad, Colonia" required>
+                                    <input type="text" name="direccion" class="form-control" placeholder="Ciudad, Colonia" maxlength="30" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label>Teléfono</label>
-                                    <input type="number" name="tel" class="form-control" placeholder="10 dígitos" required>
+                                    <input type="text" name="tel" class="form-control" placeholder="10 dígitos" maxlength="10" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label>Correo electronico</label>
-                                    <input type="email" name="email" class="form-control" placeholder="Ejemplo: ejemplo@gmail.com" required>
+                                    <input type="email" name="email" class="form-control" placeholder="Ejemplo: ejemplo@gmail.com" maxlength="50" required>
                                 </div>
                                 <br>
                                 <label>Contraseña</label>
                                 <div class="input-group">
                                     <input type="password" class="form-control" id="input_pass_nuevo">
-                                    <button class="btn btn-outline-secondary" type="button" id="btn_show_nuevo" onclick="show_pass_nuevo()" required>Ver</button>
+                                    <button class="btn btn-outline-secondary" type="button" id="btn_show_nuevo" onclick="show_pass_nuevo()" minlength="5"  maxlength="30" required>Ver</button>
                                 </div>
                                 <br>
                                 <label>Repite la contraseña</label>
                                 <div class="input-group"> 
-                                    <input type="password" name="pass" class="form-control" id="input_pass_compr" onchange="validar_pass(this)" required>
+                                    <input type="password" name="pass" class="form-control" id="input_pass_compr"  minlength="5" maxlength="30" onchange="validar_pass(this)" required>
                                     <button class="btn btn-outline-secondary" type="button" id="btn_show_compr" onclick="show_pass_compr()" >Ver</button>
                                 </div>
                                 <div class="text-danger" id="mensaje_pass"></div>
