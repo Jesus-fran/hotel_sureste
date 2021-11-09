@@ -35,13 +35,13 @@ if($var_admin == null || $var_admin == ''){
                 $contador = 0;
 
                 foreach($datos_consult as $key){
-                    $contador .= 1;
+                    $contador += 1;
                     $compras .= "<tr>
                     <th scope=\"row\">".$contador."</th>
                     <td>".$key['usuario']."</td>
-                    <td>".$key['telefono']."</td>
-                    <td>".$key['Fecha de ingreso']."</td>
-                    <td>".$key['habitación']."</td>
+                    <td>".$key['tel']."</td>
+                    <td>".$key['Fecha_estancia']."</td>
+                    <td>".$key['tipo']."</td>
                     <td>".$key['personas']."</td>
                     </tr>";
                     
