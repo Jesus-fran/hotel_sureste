@@ -70,6 +70,11 @@ if($var_admin != null | $var_admin != ''){
 
     <div class="container">
         <br><br>
+        <?php
+                if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true'){
+                echo "<h4 class=\"text-danger text-center\">Carácter invalido</h4>";
+                }
+        ?>
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
