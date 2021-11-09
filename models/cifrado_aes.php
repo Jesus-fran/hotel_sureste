@@ -60,7 +60,3 @@ if($llave){
 
 }
 
-
-// $data = encriptar($str, $llave);
-
-// $desencriptado = decrypted($data, $llave);

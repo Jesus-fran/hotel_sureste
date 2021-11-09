@@ -80,12 +80,12 @@ if($var_admin != null | $var_admin != ''){
                                 <br>
                                 <div class="form-group">
                                     <label>Nombre de usuario</label>
-                                    <input type="text" name="usuario" class="form-control" required>
+                                    <input type="text" name="usuario" class="form-control" pattern="[A-Za-z]" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label>Dirección</label>
-                                    <input type="text" name="direccion" class="form-control" placeholder="Ciudad, Colonia" required>
+                                    <input type="text" name="direccion" class="form-control" pattern="[A-Za-z]" placeholder="Ciudad, Colonia" required>
                                 </div>
                                 <br>
                                 <div class="form-group">

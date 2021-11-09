@@ -80,7 +80,7 @@ if($var_admin != null | $var_admin != ''){
                                 <br>
                                 <div class="form-group">
                                     <label>Correo electronico</label>
-                                    <input type="email" name="email" class="form-control" placeholder="ejemplo@gmail.com" required>
+                                    <input type="email" name="email" class="form-control" placeholder="ejemplo@gmail.com" pattern="[A-Za-z]" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
