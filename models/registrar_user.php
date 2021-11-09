@@ -13,7 +13,7 @@ $email_encriptado = encrip_datos($email);
 $pass_encriptado = encrip_pass($pass);
 
 
-$enlace = mysqli_connect("localhost", "admin", "coronavirus9", "hotel_sureste");
+$enlace = mysqli_connect("localhost", "admin", "Coronavirus19$", "hotel_sureste");
 
 if(!$enlace){
     echo "Error: No se pudo conectar a MySQL." . PHP_EOL;

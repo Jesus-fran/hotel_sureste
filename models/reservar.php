@@ -38,7 +38,7 @@ $codigo_encript = encriptar($codigo, $llave);
 
 
 
-$enlace = mysqli_connect("localhost", "admin", "coronavirus9", "hotel_sureste");
+$enlace = mysqli_connect("localhost", "admin", "Coronavirus19$", "hotel_sureste");
 
 if(!$enlace){
     echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
