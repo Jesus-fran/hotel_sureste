@@ -2,7 +2,7 @@
 
 
 session_start();
-error_reporting(0);
+// error_reporting(0);
 
 $var_cliente = $_SESSION['usuario'];
 $id_usuario = $_SESSION['id_usuario'];
@@ -62,10 +62,12 @@ if(!$enlace){
 
     
     // Encontrar id de habitación
-    $actualizar = "UPDATE habitaciones SET disponible=0 WHERE tipo = '$numero'";
+    $actualizar = "UPDATE habitaciones SET disponible = 0 WHERE tipo = '$numero'";
     $datos = mysqli_query($enlace, $actualizar);
     
     if($datos){
+
+        echo "Se actualiza habit";
 
 
         $consultar_habit = "SELECT id_habitacion FROM habitaciones WHERE tipo = '$numero'";
@@ -76,6 +78,8 @@ if(!$enlace){
         }
         if($numero != null){
 
+            echo "Numero es diferente a null";
+
   
 
             $insert = "INSERT INTO reservaciones (id_usuario, fecha_estancia, id_habitacion, personas) VALUES ($id_usuario,'$fecha', $numero , $personas)";
@@ -84,6 +88,8 @@ if(!$enlace){
             $datos_insert = mysqli_query($enlace, $insert);
 
             if($datos_insert){
+
+                echo "Se inserta reservacion";
 
                 $consultar_tarjet = "SELECT * FROM tarjetas WHERE id_usuario = $id_usuario";
                 $ejecutar_tarjet = mysqli_query($enlace, $consultar_tarjet);
