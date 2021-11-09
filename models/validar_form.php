@@ -4,15 +4,15 @@
 // y previenen ataques xss scripting
 
 function validar_user($user){
-    return preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$', $user);
+    return preg_match('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$', $user);
 }
 
 function validar_dir($dir){
-    return preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]');
+    return preg_match('[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]');
 }
 
 function validar_tel($tel){
-    return preg_match('#^\(?\d{2}\)?[\s\.-]?\d{4}[\s\.-]?\d{4}$#', $tel);
+    return preg_match('[0-9]', $tel);
 }
 
 function validar_email($email){
@@ -20,7 +20,7 @@ function validar_email($email){
 }
 
 function validar_pass($pass){
-    return preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]', $pass);
+    return preg_match('[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]', $pass);
 }
 
 function validar_personas($personas){
