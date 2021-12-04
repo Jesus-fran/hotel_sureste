@@ -36,7 +36,7 @@ if($var_cliente == null || $var_cliente == ''){
         <div class="container-fluid">
 
             <form class="container-fluid justify-content-start">
-                <a class="navbar-brand" href="http://143.244.172.240/hotel_sureste/">
+                <a class="navbar-brand" href="https://143.244.172.240/hotel_sureste/">
                     <img src="../imagenes/logo.PNG" alt="" width="200" height="100">
                 </a>
                 <button class="btn btn-outline-secondary" type="button" onclick="location.href='reservaciones.php'">Reservaciones</button>
@@ -80,7 +80,7 @@ if($var_cliente == null || $var_cliente == ''){
             <div class="col-md-5 offset-md-2">
                 <div class="card">
                          <!-- http://localhost/hotel_sureste/models/registrar_user.php -->
-                    <form method="POST" action="http://143.244.172.240/hotel_sureste/models/editar_user.php" novalidate>
+                    <form method="POST" action="https://143.244.172.240/hotel_sureste/models/editar_user.php" novalidate>
                         <h5 class="card-header text-center">Información personal</h5>
                         <div class="card-body">
                             <div class="container">
@@ -171,55 +171,9 @@ if($var_cliente == null || $var_cliente == ''){
 
 
     <!-- Aqui comienza el Footer -->
-    <footer class="footer bg-dark">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-
-                    <h4 class="text-white">HOTEL SURESTE</h4>
-                    <ul>
-                        <li><a class="text-white" href="#">Cookies</a></li>
-                        <li><a class="text-white" href="#">Política de privacidad</a></li>
-                        <li><a class="text-white" href="#">Aviso legal</a></li>
-                        <li><a class="text-white" href="#">Términos y condiciones</a></li>
-                    </ul>
-
-                </div>
-                <div class="col">
-
-                    <h4 class="text-white">SIGUENOS EN</h4>
-                    <ul>
-                        <li><a class="text-white" href="#">Facebook</a></li>
-                        <li><a class="text-white" href="#">Instagram</a></li>
-                        <li><a class="text-white" href="#">Pinterest</a></li>
-                        <li><a class="text-white" href="#">Twitter</a></li>
-                        <li><a class="text-white" href="#">WhatsApp</a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <ul>
-                        <br>
-                        <li>
-                            <p class="text-white">Hotel Sureste. © 2021</p>
-                        </li>
-                        <li><a class="text-white" href="#">www.HotelSureste.com</a></li><br>
-                        <li>
-                            <p class="text-white">Desarrollado por Equipo 5, 7A IDyGS </p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col">
-                    <ul><br>
-                        <li>
-                            <h5 class="text-white">Gracias por su estancia. ¡Vuelva pronto!</h5>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <?php
+    include("footer.php");
+     ?>
 </body>
 <link rel="stylesheet" href="../librerias/estilos/estilos.css">
 

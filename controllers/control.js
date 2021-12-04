@@ -1,16 +1,16 @@
 function show_login() {
-    window.location.href = "http://143.244.172.240/hotel_sureste/views/login.php";
+    window.location.href = "https://143.244.172.240/hotel_sureste/views/login.php";
 }
 
 
 function crear_llave_privada() {
-    window.location.href = "http://143.244.172.240/hotel_sureste/models/crear_llave_priv.php";
+    window.location.href = "https://143.244.172.240/hotel_sureste/models/crear_llave_priv.php";
 }
 
 
 function show_mensaje(este) {
     var id_mensaje = $(este).data('id_mens');
-    window.location.href = 'http://143.244.172.240/hotel_sureste/views/ver_mensaje.php?id=' + id_mensaje;
+    window.location.href = 'https://143.244.172.240/hotel_sureste/views/ver_mensaje.php?id=' + id_mensaje;
 }
 
 function descifrar_mens(mensaje) {
@@ -18,7 +18,7 @@ function descifrar_mens(mensaje) {
     var mensaje = $('#mensaje_encriptado').text();
 
     $.ajax({
-        url: 'http://143.244.172.240/hotel_sureste/models/descifrar_mensaje.php',
+        url: 'https://143.244.172.240/hotel_sureste/models/descifrar_mensaje.php',
         data: { mensaje: mensaje, llave_privada: llave_privada },
         type: 'POST',
         dataType: 'text',
@@ -36,7 +36,7 @@ function descifrar_mens(mensaje) {
 
 
 function show_registrar() {
-    window.location.href = "http://143.244.172.240/hotel_sureste/views/registrar.php";
+    window.location.href = "https://143.244.172.240/hotel_sureste/views/registrar.php";
 
 }
 
@@ -53,7 +53,7 @@ function cambio_habit() {
         label_habit.innerHTML = "Numero de " + tipo_habit;
 
         $.ajax({
-            url: 'http://143.244.172.240/hotel_sureste/models/validar_habitacion.php',
+            url: 'https://143.244.172.240/hotel_sureste/models/validar_habitacion.php',
             data: { habitacion: tipo_habit },
             type: 'POST',
             dataType: 'html',
@@ -91,7 +91,7 @@ function fin_reservacion() {
     var cliente = btn_fin.data(('cliente'));
 
     $.ajax({
-        url: 'http://143.244.172.240/hotel_sureste/models/fin_reservacion.php',
+        url: 'https://143.244.172.240/hotel_sureste/models/fin_reservacion.php',
         data: { tipo: tipo, cliente: cliente },
         type: 'POST',
         dataType: 'text',
@@ -117,7 +117,7 @@ function descifrar() {
     var cliente = $('#btn_descifrar').data('cliente');
 
     $.ajax({
-        url: 'http://143.244.172.240/hotel_sureste/models/mostrar_datos_bancarios.php',
+        url: 'https://143.244.172.240/hotel_sureste/models/mostrar_datos_bancarios.php',
         data: { cliente: cliente, llave_privada: llave_privada },
         type: 'POST',
         dataType: 'json',
