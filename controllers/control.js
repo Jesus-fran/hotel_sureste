@@ -17,19 +17,20 @@ function descifrar_mens(mensaje) {
 
 
     // var file_llave = $('#file_llave').val();
-    var fileInputElement = document.getElementById("file_llave").files[0];
+    // var fileInputElement = document.getElementById("file_llave").files[0];
+    var myfile = document.querySelector('input').files[0];
     var mensaje = $('#mensaje_encriptado').text();
     var text = null;
 
     if (window.File && window.FileReader && window.FileList && window.Blob) {
-        console.log(fileInputElement);
+        console.log(myfile);
         var reader = new FileReader();
 
         reader.addEventListener('load', function() {
             text = this.result;
         });
 
-        reader.readAsText(fileInputElement);
+        reader.readAsText(myfile);
         console.log(text);
     } else {
         alert('The File APIs are not fully supported in this browser.');
