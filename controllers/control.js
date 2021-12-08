@@ -20,7 +20,7 @@ function descifrar_mens(mensaje) {
     // var fileInputElement = document.getElementById("file_llave").files[0];
     var myfile = document.querySelector('input').files[0];
     var mensaje = $('#mensaje_encriptado').text();
-    var text = null;
+    var text = "";
 
     if (window.File && window.FileReader && window.FileList && window.Blob) {
         console.log(myfile);
@@ -40,7 +40,7 @@ function descifrar_mens(mensaje) {
 
     $.ajax({
         url: 'https://143.244.172.240/hotel_sureste/models/descifrar_mensaje.php',
-        data: { mensaje: mensaje, llave_privada: llave_privada },
+        data: { mensaje: mensaje, llave_privada: text },
         type: 'POST',
         dataType: 'text',
         success: function(data) {
