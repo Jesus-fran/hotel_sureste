@@ -31,17 +31,19 @@ $pass       = $_POST['pass'];
 
             $id_usuario = mysqli_insert_id($enlace);
 
-            include("cifrado_aes.php");
-
-            $email_encriptado = encriptar($email, $llave);
-            $pass_encriptado = encriptar($pass, $llave);
-
-            $update_personal = "UPDATE usuarios SET email = '$email_encriptado', pass = '$pass_encriptado' WHERE id_usuario = $id_usuario";
-            $ejecutar_update_pers = mysqli_query($enlace, $update_personal);
+            echo $id_usuario;
             
-            if($ejecutar_update_pers){
-                header ("Location:../views/login.php?registro=true");
-            }
+            // include("cifrado_aes.php");
+
+            // $email_encriptado = encriptar($email, $llave);
+            // $pass_encriptado = encriptar($pass, $llave);
+
+            // $update_personal = "UPDATE usuarios SET email = '$email_encriptado', pass = '$pass_encriptado' WHERE id_usuario = $id_usuario";
+            // $ejecutar_update_pers = mysqli_query($enlace, $update_personal);
+            
+            // if($ejecutar_update_pers){
+            //     header ("Location:../views/login.php?registro=true");
+            // }
         }
 
     }
