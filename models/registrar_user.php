@@ -37,12 +37,12 @@ $pass       = $_POST['pass'];
 
 
             // Se genera el archivo de la clave
-            $archivo = fopen('llaves/88.txt','a+');
+            $archivo = fopen('llaves/'.$id_usuario.'.txt','a+');
             fputs($archivo, $aes_key);
             fclose($archivo);
 
             // Se lee la llave privada que se encuentra en el servidor
-            $llave = file_get_contents('llaves/88.txt');
+            $llave = file_get_contents('llaves/'.$id_usuario.'.txt');
 
             // Encripta la información
             function encriptar($str, $llave){
