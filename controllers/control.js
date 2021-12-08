@@ -17,7 +17,7 @@ function descifrar_mens(mensaje) {
 
 
     // var file_llave = $('#file_llave').val();
-    var fileInputElement = document.getElementById("file_llave");
+    var fileInputElement = document.getElementById("file_llave").val();
     var mensaje = $('#mensaje_encriptado').text();
     var text = null;
 
