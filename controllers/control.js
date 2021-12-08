@@ -46,7 +46,11 @@ function descifrar_mens(mensaje) {
             });
         });
 
-        reader.readAsText(myfile);
+        if (myfile) {
+            reader.readAsText(myfile);
+        } else {
+            $('#div_mensaje').text("Seleccione el arhivo de llave privada.");
+        }
         console.log(text);
 
     } else {
