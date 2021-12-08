@@ -36,10 +36,10 @@ $pass       = $_POST['pass'];
             $email_encriptado = encriptar($email, $llave);
             $pass_encriptado = encriptar($pass, $llave);
 
-            $insert_personal = "INSERT INTO usuarios (usuario, dir, tel, email, pass) VALUES('$email_encriptado', '$pass_encriptado')";
-            $ejecutar_insert_pers = mysqli_query($enlace, $insert_personal);
+            $update_personal = "UPDATE usuarios SET email = '$email_encriptado', pass = '$pass_encriptado' WHERE id_usuario = $id_usuario";
+            $ejecutar_update_pers = mysqli_query($enlace, $update_personal);
             
-            if($ejecutar_insert_pers){
+            if($ejecutar_update_pers){
                 header ("Location:../views/login.php?registro=true");
             }
         }

@@ -2,7 +2,7 @@
 
 session_start();
 
-error_reporting(0);
+// error_reporting(0);
 
 $var_cliente = $_SESSION['usuario'];
 $var_admin = $_SESSION['usuario'];
