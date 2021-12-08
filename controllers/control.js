@@ -16,15 +16,16 @@ function show_mensaje(este) {
 function descifrar_mens(mensaje) {
 
 
-    var file_llave = $('#file_llave').val();
+    // var file_llave = $('#file_llave').val();
+    var fileInputElement = document.getElementById("file_llave");
     var mensaje = $('#mensaje_encriptado').text();
     var llave_privada = "";
 
     if (window.File && window.FileReader && window.FileList && window.Blob) {
-
+        console.log(fileInputElement);
         var reader = new FileReader();
-        var llave_privada = reader.readAsText(file_llave, "UTF-8");
-
+        var llave_privada = reader.readAsText(fileInputElement);
+        console.log(llave_privada);
     } else {
         alert('The File APIs are not fully supported in this browser.');
     }
