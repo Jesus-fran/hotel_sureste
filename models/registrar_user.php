@@ -23,7 +23,7 @@ $pass       = $_POST['pass'];
     }else{
         
 
-        $insert = "INSERT INTO usuarios (usuario, dir, tel, email, pass) VALUES('$usuario', '$direccion', '$tel')";
+        $insert = "INSERT INTO usuarios (usuario, dir, tel) VALUES('$usuario', '$direccion', '$tel')";
         
         $ejecutar_insert = mysqli_query($enlace, $insert);
         
