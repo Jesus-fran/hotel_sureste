@@ -14,10 +14,9 @@ if(!$enlace){
     exit;
 }else{
 
-    include("hash.php");
-    $email_encript = encrip_datos($email);
 
-    $consultar = "SELECT pass FROM usuarios WHERE email = '$email_encript'";
+   
+    $consultar = "SELECT id_usuario, usuario, dir, tel, email, pass FROM usuarios";
 
     $datos_consult = mysqli_query($enlace, $consultar);
     $num_rows = mysqli_num_rows($datos_consult);
@@ -25,34 +24,41 @@ if(!$enlace){
     // Se crea la sesión de un usuario
     if($num_rows != 0){
         
-            // 
+            
         foreach($datos_consult as $key){
             
 
-            if(password_verify($pass, $key['pass'])){
+            // Se lee la llave privada que se encuentra en el servidor
+            $llave = file_get_contents('llaves/'.$key['id_usuario'].'.txt');
 
-                $pass_verificado = password_verify($pass, $key['pass']);
 
-                $consultar_datos = "SELECT * FROM usuarios WHERE email = '$email_encript'";
-                $datos_consult_dts = mysqli_query($enlace, $consultar_datos);
-                $num_rows_dts = mysqli_num_rows($datos_consult_dts);
-                if($num_rows_dts != 0){
+            if($llave){
 
-                    foreach($datos_consult_dts as $key_datos){
-                        $_SESSION['id_usuario'] = $key_datos['id_usuario'];
-                        $_SESSION['usuario'] = $key_datos['usuario'];
-                        $_SESSION['dir'] = $key_datos['dir'];
-                        $_SESSION['tel'] = $key_datos['tel'];
-                    }
+                //Desencripta la información
+                function decrypted($data, $llave){
+                    $decrypted = openssl_decrypt(base64_decode($data), 'AES-128-ECB', $llave, OPENSSL_RAW_DATA);
+                    return $decrypted;
+                }
+
+                $email_decript = decrypted($key['email'], $llave);
+                $pass_decript = decrypted($key['pass'], $llave);
+
+                if($email_decript == $email && $pass_decript == $pass){
+                    
+                    $_SESSION['id_usuario'] = $key['id_usuario'];
+                    $_SESSION['usuario'] = $key['usuario'];
+                    $_SESSION['dir'] = $key['dir'];
+                    $_SESSION['tel'] = $key['tel'];
+
                     header("Location:../views/datos_cliente.php");
                 }else{
-                    
-                    header("Location:../views/login.php");
-                    
+                    header("Location: ../views/login.php?fallo=true");
                 }
-                
+ 
             }else{
+
                 header("Location: ../views/login.php?fallo=true");
+
             }
             
         }
