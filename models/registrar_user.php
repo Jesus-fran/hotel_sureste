@@ -32,7 +32,25 @@ $pass       = $_POST['pass'];
             $id_usuario = mysqli_insert_id($enlace);
 
         
-            include("cifrado_aes.php");
+            // Se crea la clave
+            $aes_key =  bin2hex(random_bytes((100 - (100 % 2)) / 2));
+
+
+            // Se genera el archivo de la clave
+            $archivo = fopen('llaves/'.$id_usuario.'.txt','a+');
+            fputs($archivo, $aes_key);
+            fclose($archivo);
+
+            // Se lee la llave privada que se encuentra en el servidor
+            $llave = file_get_contents('llaves/'.$id_usuario.'.txt');
+
+            // Encripta la información
+            function encriptar($str, $llave){
+
+                $data = openssl_encrypt($str, 'AES-128-ECB', $llave, OPENSSL_RAW_DATA);
+                $data = base64_encode($data);
+                return $data;
+            }
 
             $email_encriptado = encriptar($email, $llave);
             $pass_encriptado = encriptar($pass, $llave);
