@@ -29,29 +29,29 @@ function descifrar_mens(mensaje) {
         reader.addEventListener('load', function() {
             text = this.result;
             console.log(text);
+            // Se hace el proceso de desenctriptar
+            $.ajax({
+                url: 'https://143.244.172.240/hotel_sureste/models/descifrar_mensaje.php',
+                data: { mensaje: mensaje, llave_privada: text },
+                type: 'POST',
+                dataType: 'text',
+                success: function(data) {
+
+                    $('#div_mensaje').text(data);
+
+                },
+                error: function(xhr, status) {
+                    console.log('Error: ' + xhr.status);
+                },
+            });
         });
 
         reader.readAsText(myfile);
         console.log(text);
+
     } else {
         alert('The File APIs are not fully supported in this browser.');
     }
-
-
-    $.ajax({
-        url: 'https://143.244.172.240/hotel_sureste/models/descifrar_mensaje.php',
-        data: { mensaje: mensaje, llave_privada: text },
-        type: 'POST',
-        dataType: 'text',
-        success: function(data) {
-
-            $('#div_mensaje').text(data);
-
-        },
-        error: function(xhr, status) {
-            console.log('Error: ' + xhr.status);
-        },
-    });
 
 }
 
