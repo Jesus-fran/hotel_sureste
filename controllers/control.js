@@ -17,7 +17,7 @@ function descifrar_mens(mensaje) {
 
 
     // var file_llave = $('#file_llave').val();
-    var fileInputElement = document.getElementById("file_llave").val();
+    var fileInputElement = document.getElementById("file_llave");
     var mensaje = $('#mensaje_encriptado').text();
     var text = null;
 
@@ -25,9 +25,9 @@ function descifrar_mens(mensaje) {
         console.log(fileInputElement);
         var reader = new FileReader();
 
-        reader.onload = function(e) {
-            text = reader.result;
-        }
+        reader.addEventListener('load', function() {
+            text = this.result;
+        });
 
         reader.readAsText(fileInputElement);
         console.log(text);
