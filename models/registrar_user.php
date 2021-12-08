@@ -31,13 +31,14 @@ $pass       = $_POST['pass'];
 
             $id_usuario = mysqli_insert_id($enlace);
 
-            echo $id_usuario;
-            
-            // include("cifrado_aes.php");
+        
+            include("cifrado_aes.php");
 
-            // $email_encriptado = encriptar($email, $llave);
-            // $pass_encriptado = encriptar($pass, $llave);
+            $email_encriptado = encriptar($email, $llave);
+            $pass_encriptado = encriptar($pass, $llave);
 
+            echo $email_encriptado ."<br>";
+            echo $pass_encriptado."<br>";
             // $update_personal = "UPDATE usuarios SET email = '$email_encriptado', pass = '$pass_encriptado' WHERE id_usuario = $id_usuario";
             // $ejecutar_update_pers = mysqli_query($enlace, $update_personal);
             
