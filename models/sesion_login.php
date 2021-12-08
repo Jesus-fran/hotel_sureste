@@ -81,7 +81,11 @@ if(!$enlace){
 
                 header("Location:../views/administracion.php"); 
 
+            }else{
+                header("Location: ../views/login.php?fallo=true");
             }
+        }else{
+            header("Location: ../views/login.php?fallo=true");
         }
     }
 
