@@ -28,6 +28,7 @@ function descifrar_mens(mensaje) {
 
         reader.addEventListener('load', function() {
             text = this.result;
+            console.log(text);
         });
 
         reader.readAsText(myfile);
