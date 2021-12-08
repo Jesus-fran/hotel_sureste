@@ -28,9 +28,9 @@ $pass       = $_POST['pass'];
         $ejecutar_insert = mysqli_query($enlace, $insert);
         
         if($ejecutar_insert){
-
+            $id_usuario = "";
             $id_usuario = mysqli_insert_id($enlace);
-
+            
         
             // Se crea la clave
             $aes_key =  bin2hex(random_bytes((100 - (100 % 2)) / 2));
