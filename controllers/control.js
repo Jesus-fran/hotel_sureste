@@ -23,7 +23,7 @@ function descifrar_mens(mensaje) {
     if (window.File && window.FileReader && window.FileList && window.Blob) {
 
         var reader = new FileReader();
-        var llave_privada = FileReader.readAsText(file_llave, opt_encoding);
+        var llave_privada = FileReader.readAsText(file_llave, "UTF-8");
 
     } else {
         alert('The File APIs are not fully supported in this browser.');
