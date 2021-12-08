@@ -11,10 +11,6 @@ $pass       = $_POST['pass'];
 
 // if(validar_user($usuario) && validar_dir($direccion) && validar_tel($tel) && validar_email($email) && validar_pass($pass)){
     
-    include("hash.php");
-
-    $email_encriptado = encrip_datos($email);
-    $pass_encriptado = encrip_pass($pass);
 
 
     $enlace = mysqli_connect("localhost", "admin", "Coronavirus19$", "hotel_sureste");
@@ -27,11 +23,25 @@ $pass       = $_POST['pass'];
     }else{
         
 
-        $insert = "INSERT INTO usuarios (usuario, dir, tel, email, pass) VALUES('$usuario', '$direccion', '$tel', '$email_encriptado', '$pass_encriptado')";
+        $insert = "INSERT INTO usuarios (usuario, dir, tel, email, pass) VALUES('$usuario', '$direccion', '$tel')";
         
         $ejecutar_insert = mysqli_query($enlace, $insert);
+        
         if($ejecutar_insert){
-            header ("Location:../views/login.php?registro=true");
+
+            $id_usuario = mysqli_insert_id($enlace);
+
+            include("cifrado_aes.php");
+
+            $email_encriptado = encriptar($email, $llave);
+            $pass_encriptado = encriptar($pass, $llave);
+
+            $insert_personal = "INSERT INTO usuarios (usuario, dir, tel, email, pass) VALUES('$email_encriptado', '$pass_encriptado')";
+            $ejecutar_insert_pers = mysqli_query($enlace, $insert_personal);
+            
+            if($ejecutar_insert_pers){
+                header ("Location:../views/login.php?registro=true");
+            }
         }
 
     }

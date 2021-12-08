@@ -85,6 +85,8 @@ if(!$enlace){
                         $datos_tarjet = mysqli_query($enlace, $insert_tarjet);
                         
                         if($datos_tarjet){
+
+                            
                         
                             header("Location: ../views/datos_cliente.php");
                             
