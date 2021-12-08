@@ -98,6 +98,8 @@ if(!$enlace){
 
                     $rows_dato = mysqli_num_rows($ejecutar_tarjet);
                     if($rows_dato == 0){
+
+                        echo "row es = 0";
                     
                         $insert_tarjet = "INSERT INTO tarjetas (id_usuario,  num_tarjeta, fecha, codigo, postal) VALUE ($id_usuario, '$tarjeta_encript' ,'$fecha_vence', '$codigo_encript', $postal)";
 
