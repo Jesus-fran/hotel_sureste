@@ -74,7 +74,9 @@ if(isset($_GET["id"])){
         <div class="row">
             <div class="col-md-2">
                 <div class="form-group">
-                    <textarea id="llave_privada" placeholder="Ingresa la llave privada" rows="15"></textarea>
+                    <!-- <textarea id="llave_privada" placeholder="Ingresa la llave privada" rows="15"></textarea> -->
+                    <label for="formFile" class="form-label">Eliga su archivo de llave privada</label>
+                    <input class="form-control" type="file" id="file_llave">
                 </div>
             </div>
             <div class="col-md-6 offset-md-1">

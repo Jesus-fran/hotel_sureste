@@ -70,7 +70,7 @@ $var_admin = $_SESSION['gerente'];
 
     <!-- Aqui comienza el Footer -->
     <?php
-        include("../footer.php");
+        include("views/footer.php");
     ?>
 
 

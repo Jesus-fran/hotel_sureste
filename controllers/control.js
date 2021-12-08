@@ -14,8 +14,21 @@ function show_mensaje(este) {
 }
 
 function descifrar_mens(mensaje) {
-    var llave_privada = $('#llave_privada').val();
+
+
+    var file_llave = $('#file_llave').val();
     var mensaje = $('#mensaje_encriptado').text();
+    var llave_privada = "";
+
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+        var reader = new FileReader();
+        var llave_privada = FileReader.readAsText(file_llave, opt_encoding);
+
+    } else {
+        alert('The File APIs are not fully supported in this browser.');
+    }
+
 
     $.ajax({
         url: 'https://143.244.172.240/hotel_sureste/models/descifrar_mensaje.php',
@@ -113,6 +126,7 @@ function read_llave(este) {
 
 // Descifra
 function descifrar() {
+
     $('#llave_priv').val('');
     var cliente = $('#btn_descifrar').data('cliente');
 
